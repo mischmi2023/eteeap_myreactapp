@@ -3,18 +3,19 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <User />
-      <User />
-      <User />
+      <User name ="Bal" age={25} email="bal@tup.edu.ph" />
+      <User name ="Gas" age={18} email="gas@tup.edu.ph" />
+      <User name ="Mel" age={69} email="mel@tup.edu.ph" />
     </div>
   );
 }
-  const User = () => {
+
+  const User = (props) => {
     return (
     <div>
-      <h1> Mike </h1>
-      <h2> 41 </h2>
-      <h2> migz.dv8@gmail.com </h2>
+      <h1> {props.name} </h1>
+      <h2> {props.age} </h2>
+      <h2> {props.email} </h2>
     </div>
 
 );
