@@ -2,10 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const name = "Mike"
+  const name = <h1>Mike</h1>
   return (
     <div className="App">
-     <h1>{name}</h1>
+     {name}
     </div>
   );
 }
