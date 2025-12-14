@@ -1,14 +1,16 @@
 import './App.css';
 
 function App() {
-  return (
-   <div className="App">
-    <h1 className="name"> Mike </h1>
-    <h1 className='title-1'> Implementing CSS in React </h1>
-   </div>
-);
+  
+  const age = 15;
 
+  if (age >= 18) {
+    return <h1> Over Age </h1>;
+  }
+  else {
+    return <div className="App">
+      <h1> Under Age </h1>
+      </div>
+  }
 }
-   
-
 export default App;
