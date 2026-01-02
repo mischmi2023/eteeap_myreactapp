@@ -1,13 +1,9 @@
 import './App.css';
 
 function App() {
-  
-  const age = 19;
-  const isGreen = true;
-  return <div className="App"> {age >= 18 ? <h1> Over Age </h1> :
-    <h1> Under Age </h1>}
-    <h1 style={{ color: isGreen ? "green" : "red"}}> This has color </h1>
-    {isGreen && <button> This is a Button </button>}
+  const names = ["Madz", "Rap", "Sean", "Edel", "Pol", "Jeus", "Joms"]
+  return <div className="App">
+    <h1> {names[0]}</h1>
     </div>;
 }
 export default App;
