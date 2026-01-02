@@ -1,5 +1,5 @@
 import './App.css';
-import { User } from './User';
+import { Planets } from './Planets';
 
 function App() {
  const planets = [
@@ -13,10 +13,16 @@ function App() {
 
  return (
   <div className="App">
-    {planets.map(
-      (planet, key) => !planet.isRockPlanet && <h1> {planet.planetName} </h1>
-    )}
+    <div> {planets.map((planet, key) => {
+      return <Planets planetName={planet.planetName} isRockPlanet={planet.isRockPlanet} />
+    })}
     </div>
+    <div>
+    {planets.map((planet, key) => {
+      return !planet.isRockPlanet && <h1> {planet.planetName} </h1>
+      })}
+    </div>
+  </div>
   );
 }
 
