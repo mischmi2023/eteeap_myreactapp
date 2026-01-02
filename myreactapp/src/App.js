@@ -16,14 +16,13 @@ function App() {
     <div> {planets.map((planet, key) => {
       return <Planets planetName={planet.planetName} isRockPlanet={planet.isRockPlanet} />
     })}
-    </div>
-    <div>
+  </div>
+  <div>
     {planets.map((planet, key) => {
       return !planet.isRockPlanet && <h1> {planet.planetName} </h1>
-      })}
-    </div>
+    })}
   </div>
-  );
+  </div>
+ );
 }
-
 export default App;
