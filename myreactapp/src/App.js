@@ -2,24 +2,22 @@ import './App.css';
 import { User } from './User';
 
 function App() {
- const users = [
-  { name: "Bal", age: 21 },
-  { name: "Gas", age: 25 },
-  { name: "Mel", age: 29 },
+ const planets = [
+  { planetName: "Earth", isRockPlanet: true },
+  { planetName: "Mars", isRockPlanet: true },
+  { planetName: "Venus", isRockPlanet: true },
+  { planetName: "Jupiter", isRockPlanet: false },
+  { planetName: "Neptune", isRockPlanet: false },
+  { planetName: "Uranus", isRockPlanet: false },
  ];
 
  return (
   <div className="App">
-    {users.map((user, key) => {
-      return (
-        <div>
-          {user.name} {user.age}
-          </div>
-      );
-    })}
+    {planets.map(
+      (planet, key) => !planet.isRockPlanet && <h1> {planet.planetName} </h1>
+    )}
     </div>
- );
+  );
 }
-
 
 export default App;
