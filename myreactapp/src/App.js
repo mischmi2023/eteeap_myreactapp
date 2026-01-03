@@ -1,4 +1,4 @@
-import './App.css';
+import "./App.css";
 import { useState } from "react"; //to create a state
 //CRUD
 
