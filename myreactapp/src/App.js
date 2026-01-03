@@ -2,20 +2,27 @@ import './App.css';
 import { useState } from "react"; //to create a state
 
 function App() {
-  const [textColor, setTextColor] = useState(true);
+const [count, setCount] = useState(0);
 
-  return (
-    <div className="App">
-      <button
-        className="glass-button"
-        onClick={() => {
-          setTextColor(textColor === "white" ? "cyan" : "white");
-        }}
-      >
-        Change color
-      </button>
-      <h1 style={{ color: textColor }}> Hello World </h1>
-    </div>
+const increase = () => {
+  setCount(count + 1);
+}
+
+const decrease = () => {
+  setCount(count - 1);
+}
+
+const setToZero = () => {
+  setCount(0);
+}
+
+return (
+  <div className="App">
+    <button className="glass-button" onClick={increase}> Increase </button>
+    <button className="glass-button" onClick={decrease}> Decrease </button>
+    <button className="glass-button" onClick={setToZero}> Set to Zero </button>
+    <h1> {count} </h1>
+  </div>
  );
 }
 export default App;
