@@ -7,8 +7,9 @@ function App() {
   return (
     <div className="App">
       <button
+        className="glass-button"
         onClick={() => {
-          setTextColor(textColor === "black" ? "Green" : "black");
+          setTextColor(textColor === "white" ? "cyan" : "white");
         }}
       >
         Change color
