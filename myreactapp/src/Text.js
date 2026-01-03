@@ -6,7 +6,12 @@ export const Text = () => {
 
     useEffect(() => {
         console.log("COMPONENT MOUNTED");
-    });
+
+        return () => {
+            console.log("COMPONENT UNMOUNTED");
+        }
+
+}, []);
 
 return (
     <div>
