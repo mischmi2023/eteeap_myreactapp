@@ -1,47 +1,22 @@
 import "./App.css";
-import { useState } from "react";
-import { Task } from "./Task";
-//CRUD 
+import { Text } from "./Text.js";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [todoList, setTodoList] = useState([]);
-  const [newTask, setNewtask] = useState("");
-
-  const handleChange = (event) => {
-    setNewtask(event.target.value);
-  };
-
-  const addTask = () => {
-    const task = {
-      id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
-      taskName: newTask,
-    };
-    setTodoList([...todoList, task]);
-  };
-
-  const deleteTask = (id) => {
-    setTodoList(todoList.filter((task) => task.id !== id));
-  };
+  const [showText, setShowText] = useState(false);
 
   return (
     <div className="App">
-      <div className="addTask">
-        <input onChange={handleChange} />
-        <button onClick={addTask} > Add Task </button>
-      </div>
-      <div className="list">
-        {todoList.map((task) => {
-          return (
-            <Task taskName={task.taskName}
-            id={task.id}
-            deleteTask={deleteTask}
-            />
-          );
-        })}
-      </div>
-    </div>
-  )
-}
-  
+      <button
+        onClick={() => {
+          setShowText(!showText);
+        }}
+      >
+       Show/Hide Text 
+      </button>
 
+      {showText && <Text />}
+    </div>
+  );
+}
 export default App;
