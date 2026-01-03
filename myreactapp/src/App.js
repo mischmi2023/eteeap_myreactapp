@@ -1,9 +1,10 @@
 import "./App.css";
 import { useState } from "react";
+import { Task } from "./Task";
 //CRUD 
 
 function App() {
-  const [todoList, setTodoList] = useState([]); //Array with no initial value
+  const [todoList, setTodoList] = useState([]);
   const [newTask, setNewtask] = useState("");
 
   const handleChange = (event) => {
@@ -26,20 +27,21 @@ function App() {
     <div className="App">
       <div className="addTask">
         <input onChange={handleChange} />
-        <button className="glass-button" onClick={addTask} > Add Task </button>
+        <button onClick={addTask} > Add Task </button>
       </div>
       <div className="list">
         {todoList.map((task) => {
           return (
-            <div className="task"> 
-              <h1>{task.taskName}</h1>
-              <button onClick={() => deleteTask(task.id)}> X </button>
-            </div>
+            <Task taskName={task.taskName}
+            id={task.id}
+            deleteTask={deleteTask}
+            />
           );
         })}
       </div>
     </div>
-  );
+  )
 }
+  
 
 export default App;
