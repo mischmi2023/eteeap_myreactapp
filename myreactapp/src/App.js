@@ -4,12 +4,17 @@ import { useState } from "react"; //to create a state
 function App() {
   const [inputValue, setInputValue] = useState("");
   const handleInputChange = (event) => {
-    console.log(event.target.value);
+    setInputValue(event.target.value);
 };
 return (
   <div className="App">
-    <input type="text" onChange={handleInputChange} />
-    {inputValue}
+    <div className = "inpt">
+     <input type="text" onChange={handleInputChange} />
+    </div>
+    <div className = "mirror">
+     {inputValue}
+  </div>
+
   </div>
  );
 }
