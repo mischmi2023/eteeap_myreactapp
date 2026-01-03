@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <button
         onClick={() => {
-          setTextColor("Green");
+          setTextColor(textColor === "black" ? "Green" : "black");
         }}
       >
         Change color
