@@ -1,13 +1,13 @@
 import "./App.css";
-import { useState } from "react"; //to create a state
-//CRUD
+import { useState } from "react";
+//CRUD 
 
 function App() {
   const [todoList, setTodoList] = useState([]); //Array with no initial value
   const [newTask, setNewtask] = useState("");
 
   const handleChange = (event) => {
-    setNewTask(event.target.value);
+    setNewtask(event.target.value);
   };
 
   const addTask = () => {
@@ -22,7 +22,7 @@ function App() {
     setTodoList(todoList.filter((task) => task.id !== id));
   };
 
-  return (
+  retunr (
     <div className="App">
       <div className="addTask">
         <input onChange={handleChange} />
@@ -31,14 +31,15 @@ function App() {
       <div className="list">
         {todoList.map((task) => {
           return (
-            <div className="task">
+            <div className="task"> 
               <h1>{task.taskName}</h1>
               <button onClick={() => deleteTask(task.id)}> X </button>
-              </div>
+            </div>
           );
-        })} 
+        })}
       </div>
     </div>
   );
 }
+
 export default App;
