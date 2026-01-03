@@ -22,7 +22,7 @@ function App() {
     setTodoList(todoList.filter((task) => task.id !== id));
   };
 
-  retunr (
+  return (
     <div className="App">
       <div className="addTask">
         <input onChange={handleChange} />
