@@ -1,27 +1,18 @@
 import './App.css';
-import { Planets } from './Planets';
+import { useState } from "react"; //to create a state
 
 function App() {
- const planets = [
-  { planetName: "Earth", isRockPlanet: true },
-  { planetName: "Mars", isRockPlanet: true },
-  { planetName: "Venus", isRockPlanet: true },
-  { planetName: "Jupiter", isRockPlanet: false },
-  { planetName: "Neptune", isRockPlanet: false },
-  { planetName: "Uranus", isRockPlanet: false },
- ];
-
+ //let numbr = 0;
+ const [numbr, setNumbr] = useState(1); // creating an initial state for numbr 0.
+ const increaseNumbr = () => {
+  // age = age + 1;
+  // console.log(age);
+  setNumbr(numbr + 1); //react will rerender the whole UI to increase the number.
+ };
  return (
   <div className="App">
-    <div> {planets.map((planet, key) => {
-      return <Planets planetName={planet.planetName} isRockPlanet={planet.isRockPlanet} />
-    })}
-  </div>
-  <div>
-    {planets.map((planet, key) => {
-      return !planet.isRockPlanet && <h1> {planet.planetName} </h1>
-    })}
-  </div>
+    {numbr}
+    <button onClick={increaseNumbr}> Increase Number </button>
   </div>
  );
 }
