@@ -1,6 +1,6 @@
 import "./App.css";
 import Axios from "axios";
-import { useState, useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [catFact, setCatFact] = useState("");
