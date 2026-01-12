@@ -3,28 +3,26 @@ import Axios from "axios";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [name, setName] = useState("");
-  const [predictedAge, setPredictedAge] = useState(null); // replaced 0 by null
-  const fetchData = () => {
-    Axios.get(`https://api.agify.io/?name=${name}`).then((res) => {
-      console.log(res.data);
-      setPredictedAge(res.data); // remove .age toget all data objects
-    });
+  const [generatedExcuse, setGeneratedExcuse] = useState("");
+
+  const fetchExcuse = (excuse) => {
+    Axios.get(`https://excuser-three.vercel.app/v1/excuse/${excuse}/`).then(
+      (res) => {
+        setGeneratedExcuse(res.data[0].excuse);
+      }
+    );
   };
 
   return (
     <div className="App">
-      <input
-        placeholder="Ex. Mike"
-        onChange={(event) => {
-          setName(event.target.value);
-        }}
-      />
-      <button onClick={fetchData}> Predict Age </button>
-      <h3> Name: {predictedAge?.name} </h3>
-      <h3> Predicted Age: {predictedAge?.age} </h3>
-      <h3> Count: {predictedAge?.count} </h3>
+      <h1> Generate An Excuse </h1>
+      <button onClick={() => fetchExcuse("party")}> Party </button>
+      <button onClick={() => fetchExcuse("family")}> Family </button>
+      <button onClick={() => fetchExcuse("office")}> Office </button>
+
+      <p> {generatedExcuse} </p>
     </div>
   );
+ 
 }
 export default App;
