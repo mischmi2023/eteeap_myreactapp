@@ -1,8 +1,9 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Home } from './pages/Home';
-import { Menu } from './pages/Menu';
-import { Contact } from './pages/Contact';
+import { Home } from "./pages/Home";
+import { Menu } from "./pages/Menu";
+import { Contact } from "./pages/Contact";
+import { Navbar } from "./Navbar";
 
 function App() {
   return (
@@ -21,6 +22,6 @@ function App() {
         </Routes>
       </Router>
     </div>
-)
+  );
 }
 export default App;
