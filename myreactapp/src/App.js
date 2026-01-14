@@ -7,17 +7,22 @@ import { Navbar } from "./Navbar";
 import { useState } from "react";
 
 function App() {
+  const [username, setUsername] = useState("Mike");
+
   return (
     <div className="App">
-      <Router> 
+      <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<h1>Page not Found!</h1>} />
-        </Routes>
-      </Router>
+          <Route path="/" element={<Home username={username} />} />
+          <Route 
+            path="/profile"
+            element={<Profile username={username} setUsername={setUsername} />}
+            />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<h1>Page not Found!</h1>} />
+          </Routes>
+        </Router>
     </div>
   );
 }
