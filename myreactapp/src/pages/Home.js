@@ -1,7 +1,16 @@
-import { useContext } from "react";
-import { AppContext } from "../App";
-
+import { useQuery } from "@tanstack/react-query";
+import Axios from "axios";
 export const Home = () => {
-    const {username} = useContext(AppContext);
-    return <h1> This is the Home Page and user is: {username}</h1>;
+    const { data } = useQuery ({
+        queryKey: ["cat"],
+        queryFn: () =>
+            Axios.get("https://catfact.ninja/fact").then((res) => res.data),
+    });
+
+    return (
+        <h1>
+            This is the Home Page
+            <p> {data?.fact} </p>
+        </h1>
+    );
 };
