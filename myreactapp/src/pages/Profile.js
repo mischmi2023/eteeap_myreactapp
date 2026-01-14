@@ -1,3 +1,10 @@
-export const Profile = () => {
-    return <h1> This is the Menu Page </h1>
-}
+import React from "react";
+import { ChangeProfile } from "../components/ChangeProfile";
+export const Profile = (props) => {
+    return (
+        <div>
+            <p>Profile, user is: {props.username}</p>
+            <ChangeProfile setUsername={props.setUsername} />
+        </div>
+    );
+};
