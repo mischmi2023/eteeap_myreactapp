@@ -91,3 +91,7 @@ form {
   display: flex;
   flex-direction: column;
 }
+
+p {
+  color: #e74c3c;
+}
