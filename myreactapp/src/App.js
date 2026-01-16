@@ -1,12 +1,18 @@
 import "./App.css";
-import { Form } from "./components/Form.js";
+import { useState } from "react";
 
 function App() {
+  const [isVisible, setIsVisible] = useState(false);
+
   return (
     <div className="App">
-    <Form /> 
-    
+      <button 
+        onClick={() => 
+          setIsVisible((prev) => !prev)
+        }> {isVisible ? "Hide" : "Show"}
+      </button>
+        {isVisible && <h1> Hidden Text </h1>}
     </div>
-  )
+  );
 }
 export default App;
