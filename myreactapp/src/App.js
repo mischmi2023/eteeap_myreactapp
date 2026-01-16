@@ -6,23 +6,28 @@ import { Contact } from "./pages/Contact";
 import { Navbar } from "./Navbar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-function App() {
+function App () {
   // APP is the highest level component.
-  const client = new QueryClient();
-  return (
-    <div className="App">
-     <QueryClientProvider client={client}>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*"element={<h1>Page not Found</h1>} />
-        </Routes>
-      </Router>
-      </QueryClientProvider>
-    </div>
-  );
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+      refetchOnWindowFocus: false,
+      }
+    }});
+    return (
+      <div className="App">
+        <QueryClientProvider client={client}>
+          <Router>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/contact" elemt={< Contact />} />
+              <Route path="*" element={<h1>Page not Found!</h1>} />
+            </Routes>
+          </Router>
+        </QueryClientProvider>
+      </div>
+    );
 }
 export default App;
