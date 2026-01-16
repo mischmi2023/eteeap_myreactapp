@@ -22,7 +22,7 @@ export const Form = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <input type="text" placeholder="Full Name..." {...register("fullName")} />
             <input type="text" placeholder="Email..." {...register("email")} />
-            <input type="number" placeholder="Age..." {...register} />
+            <input type="number" placeholder="Age..." {...register("age")} />
             <input
                 type="password"
                 placeholder="Password..."
