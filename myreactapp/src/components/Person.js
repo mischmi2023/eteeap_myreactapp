@@ -13,3 +13,11 @@ export const Person = (props) => {
         </div>
     );
 };
+
+Person.propTypes = {
+    name: PropTypes.string,
+    email: PropTypes.string,
+    age: PropTypes.number, 
+    isMarried: PropTypes.bool,
+    friends: PropTypes.arrayOf(PropTypes.string),
+};
