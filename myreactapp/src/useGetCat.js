@@ -1,0 +1,28 @@
+import { useQuery } from "@tanstack/react-query";
+import Axios from "axios";
+
+export const useGetCat = () => {
+    const {
+        data,
+        refetch, 
+        isLoading, isCatLoading,
+        error, 
+    } = useQuery({
+        queryKey: ["cat"],
+        queryFn: async () => {
+            try {
+                const response = await Axios.get("https://catfact.ninja/fact");
+                return response.data;
+            } catch (error) {
+                throw new Error("Failed to fetch cat data");
+            } 
+        },
+    });
+
+    const refetchData = () => {
+        alert("Data Refecthed");
+        refetch();
+    };
+
+    return { data, refetchData, isCatLoading };
+};
