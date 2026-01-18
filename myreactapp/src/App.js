@@ -2,11 +2,12 @@ import "./App.css";
 import { useToggle } from "./useToggle";
 
 function App() {
-  const { state, toggle } = useToggle(); // another example of returning an object
+  const { state: isVisible, toggle } = useToggle(); //return as an object and not an array and replace state with isVisible as variable name
+
   return (
     <div className="App">
-      <button onClick={toggle}>{state ? "Hide" : "Show"}</button>
-      {state && <h1> Hidden Text </h1>}
+      <button onClick={toggle}>{isVisible ? "Hide" : "Show"}</button>
+      {isVisible && <h1> Hidden Text </h1>}
     </div>
   );
 }
